@@ -11,23 +11,29 @@ const ContactPage = () => {
         {/* Formulário de Contato */}
         <div className="contact-form-section">
           <h3>Envie uma Mensagem</h3>
-          {/* AS MUDANÇAS SÃO AQUI, NA TAG FORM */}
-          <form className="contact-form" name="contact" method="POST" data-netlify="true">
-            {/* CAMPO ESCONDIDO NECESSÁRIO PARA O NETLIFY FORMS */}
+          <form className="contact-form" name="contact" method="POST" data-netlify="true" action="/success">
             <input type="hidden" name="form-name" value="contact" />
             
             <div className="form-group">
               <label htmlFor="name">Seu Nome:</label>
               <input type="text" id="name" name="name" required />
             </div>
+            
             <div className="form-group">
               <label htmlFor="email">Seu E-mail:</label>
               <input type="email" id="email" name="email" required />
             </div>
+            
+            <div className="form-group">
+              <label htmlFor="phone">Seu Telefone:</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+            
             <div className="form-group">
               <label htmlFor="message">Mensagem:</label>
               <textarea id="message" name="message" rows="6" required></textarea>
             </div>
+            
             <button type="submit" className="submit-button">Enviar Mensagem</button>
           </form>
         </div>
