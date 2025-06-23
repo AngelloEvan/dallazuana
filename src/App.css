@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa; /* Um fundo levemente cinza */
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-wrapper {
+  background-color: #C12A21; /* Cor vermelha para o quadrado/fundo */
+  padding: 30px 0; /* Espaçamento interno para a borda vermelha */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+  position: sticky; /* Mantém o wrapper fixo no topo junto com a Navbar */
+  top: 0;
+  z-index: 999; /* Garante que fique acima de outros elementos */
+}
+
+main {
+  flex-grow: 1;
+  padding-top: 10px;
+}
+
+.app-footer {
+  background-color: #e9ecef; /* Cinza claro */
+  padding: 20px;
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-top: 50px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

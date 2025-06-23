@@ -1,0 +1,120 @@
+/* Estilos gerais do contêiner do carrossel */
+.carousel-container {
+  width: 100%; /* Garante que o contêiner do carrossel ocupe 100% da largura do seu pai */
+  margin: 0 auto; /* Centraliza o carrossel horizontalmente */
+  overflow: hidden; /* Garante que nada 'vaze' para fora do contêiner */
+}
+
+/* Estilos para o conteúdo dentro de cada slide do carrossel */
+/* Esta classe será aplicada a cada item que você passar para o carrossel */
+.carousel-slide-item {
+  position: relative; /* Necessário para posicionar o conteúdo sobreposto */
+  display: flex !important; /* IMPORTANTE: Garante que o Slick defina a largura corretamente e o item seja flex */
+  justify-content: center; /* Centraliza horizontalmente o conteúdo do slide */
+  align-items: center; /* Centraliza verticalmente o conteúdo do slide */
+  /* Define uma altura fixa para todos os slides do carrossel em desktop */
+  /* Ajuste '400px' para a altura que melhor se adapta ao seu design */
+  height: 400px; /* <<< ESSENCIAL: Altura padrão para desktop */
+  overflow: hidden; /* Garante que a imagem não vaze se for maior */
+  background-color: #f0f0f0; /* Cor de fundo enquanto a imagem está carregando */
+}
+
+/* Garante que o link preencha todo o slide e remove sublinhados */
+.carousel-slide-item a {
+    display: block;
+    width: 100%; /* <<< ESSENCIAL: Garante que o link ocupe toda a largura do slide */
+    height: 100%; /* Garante que o link ocupe toda a altura do slide */
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilos para as imagens dentro dos slides */
+.carousel-slide-item img {
+  width: 100%; /* <<< ESSENCIAL: Imagem deve ocupar 100% da largura do seu contêiner pai */
+  height: 100%; /* <<< ESSENCIAL: Imagem deve ocupar 100% da altura do seu contêiner pai */
+  object-fit: cover; /* MUITO IMPORTANTE: Corta a imagem para preencher o contêiner sem distorcer */
+  display: block;
+  border-radius: 8px; /* Cantos levemente arredondados para um visual moderno */
+}
+
+/* Estilos para o conteúdo (título/descrição) que pode aparecer sobreposto na imagem */
+.carousel-content {
+  position: absolute; /* Posiciona o conteúdo de forma absoluta sobre a imagem */
+  bottom: 20px; /* Distância da parte inferior do slide */
+  left: 20px; /* Distância da parte esquerda do slide */
+  color: #fff; /* Cor do texto branca */
+  text-align: left; /* Alinha o texto à esquerda */
+  background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente escuro para legibilidade */
+  padding: 10px 18px; /* Preenchimento interno */
+  border-radius: 5px; /* Cantos arredondados */
+  max-width: 70%; /* Limita a largura do conteúdo para não transbordar */
+}
+
+.carousel-content h3 {
+  margin-top: 0;
+  font-size: 1.8em; /* Tamanho da fonte do título */
+  margin-bottom: 5px;
+}
+
+.carousel-content p {
+  font-size: 1.1em; /* Tamanho da fonte da descrição */
+  margin-bottom: 0;
+}
+
+/* --- ESTILOS PARA AS SETAS DE NAVEGAÇÃO DO REACT-SLICK (prev/next) --- */
+
+/* Cor e tamanho das setas */
+.slick-prev:before,
+.slick-next:before {
+  color: #007bff; /* <<< ADICIONADO: Cor azul vibrante para as setas */
+  font-size: 30px; /* <<< ADICIONADO: Tamanho maior para as setas */
+}
+
+/* Posição das setas para ficarem nas laterais do carrossel */
+.slick-prev {
+  left: 10px; /* <<< ADICIONADO: Mais próximo da borda esquerda */
+  z-index: 1; /* <<< ADICIONADO: Garante que a seta fique acima da imagem */
+}
+
+.slick-next {
+  right: 10px; /* <<< ADICIONADO: Mais próximo da borda direita */
+  z-index: 1; /* <<< ADICIONADO: Garante que a seta fique acima da imagem */
+}
+
+
+/* --- Estilos para os pontos (dots) de navegação do react-slick --- */
+
+/* Cor dos pontos (bolinhas) inativos */
+.slick-dots li button:before {
+  color: #a0a0a0; /* Cinza claro */
+  font-size: 10px; /* Tamanho dos pontos */
+}
+
+.slick-dots li.slick-active button:before {
+  color: black; /* Ponto ativo agora é preto */
+}
+
+/* Posição geral dos pontos */
+.slick-dots {
+  bottom: 10px; /* Distância da parte inferior do carrossel */
+}
+
+/* --- Responsividade: Ajustes para telas menores (mobile) --- */
+@media (max-width: 768px) {
+  /* Esconde as setas de navegação em telas menores (geralmente gerenciado pelas settings do React-Slick) */
+  /* .slick-prev, .slick-next { display: none !important; } */ /* Removido daqui, idealmente controlado via JS settings */
+
+  .carousel-slide-item {
+    /* Reduz a altura do carrossel em telas menores para melhor visualização */
+    height: 250px; /* Ajuste conforme necessário para mobile */
+  }
+  .carousel-content {
+    bottom: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+  .carousel-content h3 {
+    font-size: 1.4em;
+  }
+}

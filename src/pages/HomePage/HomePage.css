@@ -1,0 +1,90 @@
+.home-page-container {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  max-width: 1400px; /* Limite a largura máxima de todo o conteúdo da página */
+  margin: 0 auto; /* Centraliza a página */
+}
+
+.home-hero-section {
+  width: 95%; /* O carrossel ocupa quase toda a largura */
+  max-width: 1200px; /* Mas tem um limite */
+  margin: 0 auto 50px auto; /* Centraliza e adiciona margem inferior */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  border-radius: 10px; /* Cantos arredondados */
+  overflow: hidden; /* Garante que a sombra e os cantos arredondados funcionem bem */
+}
+
+.featured-products-section,
+.about-preview-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featured-products-section h2,
+.about-preview-section h2 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #C12A21; /* Linha decorativa */
+  display: inline-block; /* Para a linha ter o tamanho do texto */
+  padding-bottom: 10px;
+}
+
+.about-preview-section p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Responsividade para seções */
+@media (max-width: 768px) {
+  .home-page-container {
+    padding-top: 10px;
+  }
+  .home-hero-section {
+    width: 100%;
+    border-radius: 0; /* Remove cantos arredondados em mobile para melhor aproveitamento da tela */
+    box-shadow: none;
+  }
+  .featured-products-section,
+  .about-preview-section {
+    padding: 30px 15px;
+  }
+  .featured-products-section h2,
+  .about-preview-section h2 {
+    font-size: 2em;
+  }
+}
+
+/* ... (Seus estilos existentes da HomePage.css) ... */
+
+/* Estilos para o grid de lista de produtos */
+.product-list-grid {
+  display: grid; /* Usa CSS Grid para o layout */
+  grid-template-columns: repeat(3, 1fr); /* Define 3 colunas de tamanho igual. 1fr significa uma fração do espaço disponível. */
+  gap: 30px; /* Espaço entre os cards */
+  padding: 20px;
+  max-width: 1200px; /* Largura máxima para o grid */
+  margin: 0 auto; /* Centraliza o grid */
+}
+/* Responsividade para o grid de produtos */
+@media (max-width: 992px) { /* Ajuste para tablets e telas médias */
+  .product-list-grid {
+    /* Em telas menores que 992px, exibe 2 colunas */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) { /* Ajuste para telas pequenas (celulares) */
+  .product-list-grid {
+    /* Uma única coluna em telas muito pequenas (celular) */
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 15px;
+  }
+}
+

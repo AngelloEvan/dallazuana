@@ -1,0 +1,200 @@
+/* Estilos gerais da Navbar */
+.navbar {
+  background-color: #009246; /* Cor de fundo escura, como um cinza chumbo */
+  height: 80px; /* Altura da barra de navegação */
+  display: flex; /* Usa flexbox para alinhar conteúdo */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  font-size: 1.2rem; /* Tamanho da fonte padrão para a navbar */
+  position: sticky; /* Faz a navbar ficar fixa no topo ao rolar */
+  top: 0; /* Fixa no topo da tela */
+  z-index: 999; /* Garante que ela fique acima de outros elementos na página */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
+}
+
+/* Contêiner interno para limitar a largura do conteúdo e alinhar */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Espaça o logo e o menu */
+  align-items: center; /* Centraliza verticalmente o logo e o menu dentro do container */
+  height: 80px;
+  max-width: 1300px; /* Largura máxima para o conteúdo da navbar */
+  width: 90%; /* Ocupa 90% da largura do pai */
+  padding: 0 20px; /* Preenchimento nas laterais */
+}
+
+/* Estilos para o logo */
+.navbar-logo {
+  color: #fff; /* Cor do texto do logo branca */
+  justify-self: start; /* Alinha o logo ao início */
+  /* margin-left: 20px; */ /* Pode ser removido, o padding do container já ajuda */
+  cursor: pointer; /* Indica que é clicável */
+  text-decoration: none; /* Remove sublinhado */
+  font-size: 2rem; /* Tamanho do logo */
+  display: flex;
+  align-items: center;
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilos para o menu de navegação (itens de lista) - VERSÃO DESKTOP */
+.nav-menu {
+  display: flex; /* Mantenha display: flex */
+  align-items: center; /* ESSENCIAL: Centraliza verticalmente os itens do menu */
+  gap: 20px; /* Espaço entre os itens (substitui grid-gap) */
+  list-style: none; /* Remove marcadores de lista */
+  /* text-align: center; */ /* Esta propriedade não tem efeito direto em display: flex e pode ser removida */
+  flex-grow: 1; /* Faz o menu ocupar o espaço restante na navbar-container */
+  /* REMOVA OU COMENTE ESTAS DUAS LINHAS: */
+  /* width: 60vw; */
+  /* margin-right: 2rem; */
+  justify-content: flex-end; /* Alinha os itens do menu à direita */
+}
+
+/* Estilos para cada item da lista (li) */
+.nav-item {
+  height: 80px; /* Garante que cada item tenha a mesma altura da Navbar */
+  display: flex; /* ESSENCIAL: Permite centralizar o conteúdo (link) verticalmente */
+  align-items: center; /* Centraliza verticalmente o link dentro do nav-item */
+}
+
+/* Estilos para os links de navegação (a) */
+.nav-links {
+  color: #fff; /* Cor do texto dos links branca */
+  text-decoration: none; /* Remove sublinhado */
+  padding: 8px 16px; /* Preenchimento interno */
+  height: 100%; /* Faz o link ocupar toda a altura do nav-item */
+  border-bottom: 3px solid transparent; /* Borda invisível para o efeito de hover */
+  transition: all 0.2s ease-out; /* Transição suave para o hover */
+  display: flex; /* Para que o padding e height funcionem bem */
+  align-items: center; /* Centraliza o texto do link se houver padding */
+}
+
+/* Efeito de hover nos links de navegação */
+.nav-links:hover {
+  color: #C12A21; /* Mudar cor do texto para vermelho no hover */
+}
+
+/* Ocultar o ícone do menu responsivo por padrão (aparecerá em mobile) */
+.menu-icon {
+  display: none;
+}
+
+/* --- Responsividade: Ajustes para Telas Menores (Mobile) --- */
+@media screen and (max-width: 960px) {
+  .navbar-container {
+    padding: 0 10px; /* Reduz padding em mobile */
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column; /* Itens empilhados verticalmente */
+    width: 100%;
+    height: 90vh; /* Ocupa quase toda a altura da tela visível */
+    position: absolute; /* Posicionamento absoluto para deslizar */
+    top: 80px; /* Começa abaixo da navbar */
+    left: -100%; /* Escondido fora da tela, à esquerda */
+    opacity: 1;
+    transition: all 0.5s ease; /* Transição suave para o menu deslizar */
+    background: #009246; /* Fundo do menu mobile */
+  }
+
+  .nav-menu.active { /* Classe para quando o menu estiver ativo/aberto (adicionada via JS) */
+    left: 0; /* Desliza para dentro da tela */
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-item {
+    height: 80px; /* Altura dos itens no menu mobile */
+    width: 100%;
+    justify-content: center; /* Centraliza itens */
+  }
+
+  .nav-links {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: none; /* Remove borda inferior em mobile */
+  }
+
+  .nav-links:hover {
+    
+    color: #fff; /* Cor do texto no hover em mobile */
+    border-radius: 0; /* Remove borda arredondada */
+  }
+
+  /* Ajuste a posição do logo em mobile */
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(10px) translateY(18px);
+    font-size: 1.8rem;
+  }
+
+  /* Mostra o ícone do menu (hambúrguer) em telas menores */
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #fff;
+  }
+}
+
+/* Estilos para o link do ícone do carrinho */
+.cart-icon-link {
+  position: relative; /* Para posicionar o contador de itens */
+  font-size: 1.5rem; /* Ajuste o tamanho do ícone do carrinho */
+  padding: 8px 12px; /* Ajuste o padding para o ícone */
+}
+
+/* Estilos para o contador de itens no carrinho */
+.cart-item-count {
+  background-color: #dc3545; /* Cor vermelha para o contador */
+  color: white;
+  border-radius: 50%; /* Faz a bolinha */
+  padding: 2px 7px; /* Preenchimento para o número */
+  font-size: 0.7em; /* Tamanho da fonte do número */
+  position: absolute; /* Posiciona o contador */
+  top: 5px; /* Ajuste a posição vertical */
+  right: -5px; /* Ajuste a posição horizontal */
+  transform: translate(50%, -50%); /* Ajuste fino de posicionamento */
+  min-width: 20px; /* Largura mínima para números maiores */
+  text-align: center;
+  line-height: 1; /* Garante que o texto fique centralizado verticalmente na bolinha */
+}
+
+/* ... (Seus estilos responsivos para mobile) ... */
+
+@media screen and (max-width: 960px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 75%; /* Largura do menu quando aberto (ajuste se quiser 100% ou outro valor) */
+    height: 90vh;
+    position: absolute;
+    top: 80px; /* Começa abaixo da altura da navbar */
+    left: -100%; /* <<< ESSENCIAL: ISSO MANTÉM O MENU FORA DA TELA POR PADRÃO */
+    opacity: 1; /* A opacidade 1 não o esconde, o 'left: -100%' o faz */
+    transition: all 0.5s ease; /* Transição suave ao abrir/fechar */
+    background: #009246; /* Fundo do menu mobile */
+    z-index: 1; /* Garante que fique sobre outros elementos */
+  }
+   /* Esta classe '.nav-menu.active' é adicionada/removida pelo JavaScript */
+  .nav-menu.active {
+    left: 0; /* <<< ESSENCIAL: MOVE O MENU PARA DENTRO DA TELA QUANDO ATIVO */
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .cart-item-count {
+    top: 15px; /* Ajusta a posição em mobile */
+    right: 30%; /* Ajusta a posição em mobile */
+    transform: translate(50%, -50%);
+  }
+}

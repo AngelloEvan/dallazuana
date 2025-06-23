@@ -1,0 +1,160 @@
+.order-summary-container {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 25px;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.order-summary-container h3 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 1.8em;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.order-summary-container.empty p {
+  color: #666;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.order-items-list {
+  margin-bottom: 20px;
+  max-height: 300px; /* Limita a altura para scroll se muitos itens */
+  overflow-y: auto; /* Adiciona scroll vertical */
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 1.05em;
+  color: #444;
+}
+
+.order-item:last-child {
+  border-bottom: none; /* Remove a borda do último item */
+}
+
+.item-name {
+  flex: 2; /* Ocupa mais espaço */
+  text-align: left;
+  font-weight: bold;
+}
+
+.item-price {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.item-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1; /* Ocupa espaço para os controles */
+  justify-content: flex-end; /* Alinha os controles à direita */
+}
+
+.item-quantity-controls button {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.item-quantity-controls button:hover {
+  background-color: #ddd;
+}
+
+.item-quantity-controls span {
+  font-weight: bold;
+}
+
+.remove-item-btn {
+  background-color: #dc3545 !important; /* Vermelho */
+  color: white;
+  border: none !important;
+  margin-left: 10px; /* Espaço do botão */
+}
+
+.remove-item-btn:hover {
+  background-color: #c82333 !important;
+}
+
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-top: 15px;
+  border-top: 2px solid #ddd;
+  margin-top: 20px;
+  color: #333;
+}
+
+.total-amount {
+  color: #28a745; /* Verde para o total */
+}
+
+.whatsapp-button {
+  background-color: #25d366; /* Cor verde WhatsApp */
+  color: white;
+  border: none;
+  border-radius: 25px; /* Botão mais arredondado */
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex; /* Para alinhar o ícone/texto */
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Espaço entre texto e ícone (se adicionar um) */
+  width: 100%;
+}
+
+.whatsapp-button:hover {
+  background-color: #1da851;
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .order-summary-container {
+    padding: 15px;
+  }
+  .order-item {
+    flex-direction: column; /* Empilha itens em telas pequenas */
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .item-quantity-controls {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .item-name, .item-price {
+    width: 100%;
+    text-align: left;
+  }
+  .order-total {
+    font-size: 1.3em;
+  }
+  .whatsapp-button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+}

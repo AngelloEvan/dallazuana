@@ -1,0 +1,105 @@
+.product-card {
+  border: 1px solid #e0e0e0; /* Borda suave */
+  border-radius: 10px; /* Cantos arredondados */
+  overflow: hidden; /* Garante que a imagem não vaze */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave ao passar o mouse */
+  background-color: #fff; /* Fundo branco */
+  display: flex; /* Para flexbox interno se necessário */
+  flex-direction: column; /* Conteúdo em coluna */
+  height: 100%; /* Garante que todos os cards tenham a mesma altura na grade */
+  box-shadow: 0 1px 2px #C12A21;
+
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: inherit; /* Garante que a cor do texto seja herdada ou definida por outras regras */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.product-card-image-container {
+  width: 100%;
+  height: 200px; /* Altura fixa para a imagem */
+  overflow: hidden; /* Garante que a imagem se ajuste */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8; /* Fundo enquanto a imagem carrega */
+  
+}
+
+.product-card-image {
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  height: 100%; /* Ocupa toda a altura do contêiner */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+  transition: transform 0.3s ease;
+  
+}
+
+.product-card:hover .product-card-image {
+  transform: scale(1.05); /* Zoom suave na imagem ao passar o mouse */
+}
+
+.product-card-details {
+  padding: 15px;
+  text-align: center;
+  flex-grow: 1; /* Faz os detalhes ocuparem o espaço restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaça o conteúdo verticalmente */
+  
+}
+
+.product-card-name {
+  font-size: 1.3em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.product-card-price {
+  font-size: 1.1em;
+  color: #C12A21; /* Cor destacada para o preço */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.product-card-button {
+  background-color: #28a745; /* Cor verde para botão de ação "Adicionar" */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.product-card-button:hover {
+  background-color: #218838; /* Cor mais escura ao passar o mouse */
+}
+
+/* --- Responsividade para telas menores --- */
+@media (max-width: 600px) {
+  .product-card-image-container {
+    height: 180px; /* Ajusta a altura da imagem em telas menores */
+  }
+
+  .product-card-name {
+    font-size: 1.1em;
+  }
+
+  .product-card-price {
+    font-size: 1em;
+  }
+
+  .product-card-button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,68 @@
+.category-navbar {
+  background-color: #e9ecef; /* Cor de fundo clara */
+  padding: 10px 0;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 30px; /* Espaço abaixo da navbar de categoria */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.category-menu {
+  display: flex;
+  justify-content: center; /* Centraliza as categorias */
+  flex-wrap: wrap; /* Permite que as categorias quebrem linha em telas menores */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #495057; /* Cor do texto padrão */
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent; /* Borda transparente para manter o espaçamento */
+  font-weight: 500;
+}
+
+.category-item:hover {
+  background-color: #C12A21; /* Fundo azul no hover */
+  color: white; /* Texto branco no hover */
+}
+
+.category-item.active {
+  background-color: #009246; /* Fundo azul para a categoria ativa */
+  color: white; /* Texto branco para a categoria ativa */
+  border-color: #C12A21;
+  font-weight: bold;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .category-navbar {
+    padding: 8px 0;
+    margin-bottom: 20px;
+  }
+  .category-item {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    margin: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-navbar {
+    overflow-x: auto; /* Permite rolagem horizontal se muitas categorias */
+    white-space: nowrap; /* Impede quebras de linha */
+    justify-content: flex-start; /* Alinha categorias à esquerda para rolagem */
+    padding: 5px 0;
+  }
+  .category-menu {
+    justify-content: flex-start; /* Alinha itens para rolagem */
+  }
+  .category-item {
+    min-width: fit-content; /* Garante que o item não encolha demais */
+  }
+}
