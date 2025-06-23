@@ -1,46 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Importa o componente Link para navegação
-import { useOrder } from '../../context/OrderContext'; // Importa o hook useOrder para acessar o estado do pedido
-import './Navbar.css'; // Importa os estilos CSS para a Navbar
+import React, { useState } from 'react'; // <<< IMPORTANTE: Importa useState
+import { Link } from 'react-router-dom';
+import { useOrder } from '../../context/OrderContext';
+import './Navbar.css';
 
 const Navbar = () => {
-  // Pega os itens do pedido do OrderContext
   const { orderItems } = useOrder();
-
-  // Calcula a quantidade total de itens no pedido somando as quantidades de cada produto.
-  // Se não houver itens, o total será 0.
   const totalItemsInOrder = orderItems.reduce((total, item) => total + item.quantity, 0);
+
+  // ESTADO PARA CONTROLAR SE O MENU MOBILE ESTÁ ABERTO OU FECHADO
+  const [click, setClick] = useState(false);
+
+  // FUNÇÃO PARA ALTERNAR O ESTADO DO MENU (abrir/fechar)
+  const handleClick = () => setClick(!click);
+
+  // FUNÇÃO PARA FECHAR O MENU AO CLICAR EM UM LINK (em mobile)
+  const closeMobileMenu = () => setClick(false);
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo do Site: Um link para a página inicial */}
-        <Link to="/" className="navbar-logo">
-          Dallazuana {/* Você pode mudar o nome da sua loja aqui */}
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar no logo */}
+          Dallazuana
         </Link>
 
         {/* Menu de Navegação Principal */}
-        <ul className="nav-menu">
+        {/* Adiciona a classe 'active' se o menu estiver aberto, controlada pelo estado 'click' */}
+        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <Link to="/" className="nav-links">
+            <Link to="/" className="nav-links" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar */}
               Início
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/produtos" className="nav-links">
+            <Link to="/produtos" className="nav-links" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar */}
               Produtos
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/contato" className="nav-links">
+            <Link to="/contato" className="nav-links" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar */}
               Contato
             </Link>
           </li>
           {/* Item do Menu para o Pedido/Carrinho com o Contador */}
           <li className="nav-item">
-            <Link to="/meu-pedido" className="nav-links cart-icon-link">
-              🛒 {/* Ícone de carrinho - você pode substituir por um ícone SVG mais profissional */}
-              {/* Exibe o contador apenas se houver 1 ou mais itens no pedido */}
+            <Link to="/meu-pedido" className="nav-links cart-icon-link" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar */}
+              🛒
               {totalItemsInOrder > 0 && (
                 <span className="cart-item-count">{totalItemsInOrder}</span>
               )}
@@ -48,9 +53,10 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Ícone para Menu Responsivo (Hambúrguer) - Lógica JS será adicionada depois */}
-        <div className="menu-icon">
-          ☰ {/* Caractere Unicode para o ícone de hambúrguer */}
+        {/* Ícone para Menu Responsivo (Hambúrguer) */}
+        <div className="menu-icon" onClick={handleClick}> {/* Chama handleClick ao clicar */}
+          {/* Altera o ícone baseado no estado 'click' */}
+          {click ? '✖' : '☰'} {/* 'X' quando aberto, '☰' quando fechado */}
         </div>
       </div>
     </nav>
