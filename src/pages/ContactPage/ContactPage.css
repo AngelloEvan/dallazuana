@@ -1,7 +1,7 @@
 .contact-page-container {
   padding: 40px 20px;
   text-align: center;
-  max-width: 800px;
+  max-width: 1200px; /* Aumenta a largura máxima para acomodar duas colunas */
   margin: 0 auto;
 }
 
@@ -9,7 +9,7 @@
   font-size: 2.5em;
   color: #333;
   margin-bottom: 20px;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid #009246;
   display: inline-block;
   padding-bottom: 10px;
 }
@@ -21,12 +21,39 @@
   line-height: 1.6;
 }
 
-.contact-form {
+/* Layout de duas colunas para o conteúdo de contato */
+.contact-content {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebrar linha em mobile */
+  gap: 30px; /* Espaço entre as colunas */
+  justify-content: center; /* Centraliza as colunas */
+  margin-top: 20px;
+}
+
+.contact-form-section,
+.contact-info-section {
+  flex: 1; /* Faz as seções ocuparem o espaço disponível */
+  min-width: 300px; /* Largura mínima para cada seção */
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  text-align: left;
+  text-align: left; /* Conteúdo dentro da seção alinhado à esquerda */
+}
+
+.contact-form-section h3,
+.contact-info-section h3 {
+  font-size: 1.8em;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee; /* Linha sutil para subtítulos */
+  padding-bottom: 10px;
+}
+
+/* Estilos do formulário (mantidos do anterior) */
+.contact-form {
+  margin-top: 20px;
 }
 
 .form-group {
@@ -43,7 +70,7 @@
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
-  width: calc(100% - 20px); /* 100% menos o padding */
+  width: calc(100% - 20px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -51,11 +78,11 @@
 }
 
 .form-group textarea {
-  resize: vertical; /* Permite redimensionar verticalmente */
+  resize: vertical;
 }
 
 .submit-button {
-  background-color: #009246;
+  background-color: #218838;
   color: white;
   border: none;
   border-radius: 5px;
@@ -68,4 +95,71 @@
 
 .submit-button:hover {
   background-color: #28a745;
+}
+
+/* Estilos para informações de contato */
+.contact-details p {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Estilos para redes sociais */
+.social-media-links {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.social-media-links h3 {
+  border-bottom: none; /* Remove borda inferior para este h3 */
+  margin-bottom: 15px;
+}
+
+.social-icon {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.2s ease;
+}
+
+.social-icon img {
+  width: 40px; /* Tamanho dos ícones */
+  height: 40px;
+  filter: grayscale(100%); /* Ícones cinzas por padrão */
+  transition: filter 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px); /* Efeito de levantar no hover */
+}
+
+.social-icon.facebook img { filter: grayscale(0%); /* Remove filtro ao colorir */ }
+.social-icon.instagram img { filter: grayscale(0%); }
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  .contact-page-container {
+    padding: 20px 15px;
+  }
+  .contact-content {
+    flex-direction: column; /* Empilha as seções em mobile */
+    gap: 20px;
+  }
+  .contact-form-section,
+  .contact-info-section {
+    padding: 20px;
+    min-width: unset; /* Remove largura mínima */
+  }
+  .contact-form-section h3,
+  .contact-info-section h3 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%; /* Ocupa 100% da largura em telas muito pequenas */
+    padding: 8px 0;
+  }
 }

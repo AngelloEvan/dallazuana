@@ -1,7 +1,8 @@
 /* Estilos gerais da Navbar */
 .navbar {
-  background-color: #009246; /* Cor de fundo escura, como um cinza chumbo */
-  height: 80px; /* Altura da barra de navegação */
+  font-family: ui-serif;
+  background-color: #fff; /* Cor de fundo escura, como um cinza chumbo */
+  height: 60px; /* Altura da barra de navegação */
   display: flex; /* Usa flexbox para alinhar conteúdo */
   justify-content: center; /* Centraliza o conteúdo horizontalmente */
   align-items: center; /* Centraliza o conteúdo verticalmente */
@@ -9,7 +10,7 @@
   position: sticky; /* Faz a navbar ficar fixa no topo ao rolar */
   top: 0; /* Fixa no topo da tela */
   z-index: 999; /* Garante que ela fique acima de outros elementos na página */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
+  /*box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
 }
 
 /* Contêiner interno para limitar a largura do conteúdo e alinhar */
@@ -25,14 +26,16 @@
 
 /* Estilos para o logo */
 .navbar-logo {
-  color: #fff; /* Cor do texto do logo branca */
+  color: #C12A21; /* Cor do texto do logo branca */
   /* margin-left: 20px; */ /* Pode ser removido, o padding do container já ajuda */
   cursor: pointer; /* Indica que é clicável */
   text-decoration: none; /* Remove sublinhado */
-  font-size: 2rem; /* Tamanho do logo */
+  font-size: 1cm; /* Tamanho do logo */
   display: flex;
   align-items: center;
   font-weight: bold; /* Texto em negrito */
+  font-family: "Garamond", Times, serif;
+  
 }
 
 /* Estilos para o menu de navegação (itens de lista) - VERSÃO DESKTOP */
@@ -56,7 +59,7 @@
 
 /* Estilos para os links de navegação (a) */
 .nav-links {
-  color: #fff; /* Cor do texto dos links branca */
+  color: #009246; /* Cor do texto dos links branca */
   text-decoration: none; /* Remove sublinhado */
   padding: 8px 16px; /* Preenchimento interno */
   height: 100%; /* Faz o link ocupar toda a altura do nav-item */
@@ -68,7 +71,6 @@
 
 /* Efeito de hover nos links de navegação */
 .nav-links:hover {
-  border-bottom: 3px solid #007bff; /* Borda inferior azul no hover para desktop */
   color: #C12A21; /* Mudar cor do texto para vermelho no hover */
 }
 

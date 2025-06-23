@@ -14,9 +14,9 @@ function App() {
     <Router>
       <OrderProvider>
         <div className="App"> 
-          <div className="navbar-wrapper">
+          <div className="navbar-wrapper"></div>
             <Navbar />
-          </div>
+          
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />

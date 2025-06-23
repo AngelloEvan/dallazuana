@@ -8,7 +8,7 @@
   display: flex; /* Para flexbox interno se necessário */
   flex-direction: column; /* Conteúdo em coluna */
   height: 100%; /* Garante que todos os cards tenham a mesma altura na grade */
-  box-shadow: 0 1px 2px #C12A21;
+  /*box-shadow: 0 1px 2px #C12A21;*/
 
   text-decoration: none; /* Remove o sublinhado do link */
   color: inherit; /* Garante que a cor do texto seja herdada ou definida por outras regras */
@@ -62,10 +62,10 @@
 }
 
 .product-card-price {
-  font-size: 1.1em;
   color: #C12A21; /* Cor destacada para o preço */
   margin-bottom: 15px;
   font-weight: bold;
+  font-family: Arial Narrow, sans-serif;
 }
 
 .product-card-button {

@@ -44,7 +44,7 @@
   left: 20px; /* Distância da parte esquerda do slide */
   color: #fff; /* Cor do texto branca */
   text-align: left; /* Alinha o texto à esquerda */
-  background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente escuro para legibilidade */
+  /*background: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente escuro para legibilidade */
   padding: 10px 18px; /* Preenchimento interno */
   border-radius: 5px; /* Cantos arredondados */
   max-width: 70%; /* Limita a largura do conteúdo para não transbordar */
@@ -64,11 +64,7 @@
 /* --- ESTILOS PARA AS SETAS DE NAVEGAÇÃO DO REACT-SLICK (prev/next) --- */
 
 /* Cor e tamanho das setas */
-.slick-prev:before,
-.slick-next:before {
-  color: #007bff; /* <<< ADICIONADO: Cor azul vibrante para as setas */
-  font-size: 30px; /* <<< ADICIONADO: Tamanho maior para as setas */
-}
+
 
 /* Posição das setas para ficarem nas laterais do carrossel */
 .slick-prev {

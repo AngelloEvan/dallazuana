@@ -68,6 +68,7 @@
   padding: 20px;
   max-width: 1200px; /* Largura máxima para o grid */
   margin: 0 auto; /* Centraliza o grid */
+  font-family: ui-serif;
 }
 /* Responsividade para o grid de produtos */
 @media (max-width: 992px) { /* Ajuste para tablets e telas médias */
