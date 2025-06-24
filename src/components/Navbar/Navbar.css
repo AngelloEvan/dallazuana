@@ -59,7 +59,7 @@
 
 /* Estilos para os links de navegação (a) */
 .nav-links {
-  color: #009246; /* Cor do texto dos links branca */
+  color: #C12A21; /* Cor do texto dos links branca */
   text-decoration: none; /* Remove sublinhado */
   padding: 8px 16px; /* Preenchimento interno */
   height: 100%; /* Faz o link ocupar toda a altura do nav-item */
@@ -71,7 +71,7 @@
 
 /* Efeito de hover nos links de navegação */
 .nav-links:hover {
-  color: #C12A21; /* Mudar cor do texto para vermelho no hover */
+  color: #28a745; /* Mudar cor do texto para vermelho no hover */
 }
 
 /* Estilos para o link do ícone do carrinho */
@@ -83,7 +83,7 @@
 
 /* Estilos para o contador de itens no carrinho */
 .cart-item-count {
-  background-color: #dc3545; /* Cor vermelha para o contador */
+  background-color: #28a745; /* Cor vermelha para o contador */
   color: white;
   border-radius: 50%; /* Faz a bolinha */
   padding: 2px 7px; /* Preenchimento para o número */
@@ -118,12 +118,12 @@
     height: auto; /* Altura se ajusta ao conteúdo */
     padding: 10px 0; /* Padding vertical para o menu */
     position: absolute; /* Posicionamento absoluto para aparecer abaixo da navbar */
-    top: 80px; /* Começa abaixo da altura da navbar principal */
+    top: 40px; /* Começa abaixo da altura da navbar principal */
     left: 0; /* Alinha o menu à esquerda da tela */
     opacity: 0; /* <<< ESCONDIDO: Começa invisível */
     visibility: hidden; /* <<< ESCONDIDO: Impede cliques quando invisível */
     transition: opacity 0.3s ease, visibility 0.3s ease; /* Transição para fade */
-    background: #009246; /* Fundo do menu mobile */
+    background: #fff; /* Fundo do menu mobile */
     z-index: 1; /* Garante que fique sobre outros elementos */
     flex-wrap: wrap; /* Permite que os itens quebrem a linha se muitos */
     gap: 10px; /* Espaço entre os itens no menu horizontal */
@@ -138,7 +138,7 @@
   .nav-item {
     height: auto; /* Altura se ajusta ao conteúdo */
     width: auto; /* Largura se ajusta ao conteúdo */
-    padding: 5px 10px; /* Ajuste o padding para os itens horizontais */
+    padding: 5px 5px; /* Ajuste o padding para os itens horizontais */
   }
 
   .nav-links {
@@ -170,7 +170,7 @@
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #fff;
+    color: #C12A21;
   }
 
   /* Ajustes para o contador do carrinho em mobile */
