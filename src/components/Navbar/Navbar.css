@@ -102,6 +102,18 @@
   display: none;
 }
 
+.navbar-logo .logo-image {
+  height: 60px; /* Ajuste para o tamanho da sua logo */
+  width: auto; /* Mantém a proporção */
+  /* Pode adicionar max-width: 100%; para responsividade */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center; /* Alinha verticalmente a logo no centro */
+  /* Outros estilos para o container do logo */
+}
+
 
 /* --- Responsividade: Ajustes para Telas Menores (Mobile) --- */
 @media screen and (max-width: 960px) {

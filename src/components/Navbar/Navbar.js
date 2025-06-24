@@ -21,7 +21,8 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Logo do Site: Um link para a página inicial */}
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar no logo */}
-          Dallazuana
+          
+         Dona Empadinha
         </Link>
 
         {/* Menu de Navegação Principal */}
