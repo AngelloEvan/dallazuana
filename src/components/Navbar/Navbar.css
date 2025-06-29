@@ -102,16 +102,19 @@
   display: none;
 }
 
-.navbar-logo .logo-image {
-  height: 60px; /* Ajuste para o tamanho da sua logo */
-  width: auto; /* Mantém a proporção */
-  /* Pode adicionar max-width: 100%; para responsividade */
+.navbar-logo-image {
+    height: 100px; /* Ajuste a altura conforme necessário */
+    width: auto; /* Mantém a proporção da imagem */
+    margin-top: -8px;
+    /* Você pode adicionar outras propriedades como max-width, margin, etc. */
 }
 
+/* Se você tinha algum estilo para o texto, pode removê-lo ou adaptá-lo */
 .navbar-logo {
-  display: flex;
-  align-items: center; /* Alinha verticalmente a logo no centro */
-  /* Outros estilos para o container do logo */
+    display: flex; /* Se quiser centralizar a imagem verticalmente */
+    align-items: center;
+    justify-content: center;
+    /* Outros estilos do seu link, como padding, color, etc. */
 }
 
 
@@ -197,4 +200,19 @@
     transform: translate(50%, -50%); /* Posicionamento fino */
     font-size: 0.6em; /* Reduz o tamanho da fonte */
   }
+
+  .navbar-logo-image {
+    height: 60px; /* Ajuste a altura conforme necessário */
+    width: auto; /* Mantém a proporção da imagem */
+    margin-top: -10px;
+    /* Você pode adicionar outras propriedades como max-width, margin, etc. */
+}
+
+/* Se você tinha algum estilo para o texto, pode removê-lo ou adaptá-lo */
+.navbar-logo {
+    display: flex; /* Se quiser centralizar a imagem verticalmente */
+    align-items: center;
+    justify-content: center;
+    /* Outros estilos do seu link, como padding, color, etc. */
+}
 }

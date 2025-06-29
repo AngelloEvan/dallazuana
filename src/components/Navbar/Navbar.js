@@ -22,7 +22,7 @@ const Navbar = () => {
         {/* Logo do Site: Um link para a página inicial */}
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}> {/* Fecha o menu ao clicar no logo */}
           
-         Dona Empadinha
+         <img src="\logoescrito.png" alt="Dona Empadinha Logo" className="navbar-logo-image" />
         </Link>
 
         {/* Menu de Navegação Principal */}
