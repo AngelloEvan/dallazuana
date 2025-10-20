@@ -28,11 +28,14 @@ const HomePage = () => {
                 const response = await apiClient.get('/produtos/novidades'); 
                 
                 // A resposta.data contém a lista de ProdutoDTOs (os 3 mais recentes)
-                setProdutosDestaque(response.data); 
+                // Garante que sempre seja um array
+                const data = Array.isArray(response.data) ? response.data : [];
+                setProdutosDestaque(data); 
                 
             } catch (err) {
                 console.error("Erro ao buscar produtos em destaque:", err);
                 setError("Não foi possível carregar os produtos. Verifique a conexão com a API.");
+                setProdutosDestaque([]); // Define como array vazio em caso de erro
             } finally {
                 setIsLoading(false);
             }
