@@ -9,8 +9,6 @@
   display: flex;
   flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -42,18 +40,19 @@
 }
 
 .product-detail-name {
-  font-size: 2.8em;
-  color: #333;
+  font-family: "Island Moments", cursive;
+  font-size: 64px;
+  color: #666;
   margin-top: 0;
   margin-bottom: 15px;
   line-height: 1.2;
+  font-weight: normal;
 }
 
 .product-detail-price {
   font-size: 2em;
   color: #333;
   margin-bottom: 25px;
-  font-weight: bold;
 }
 
 .product-detail-description {
@@ -63,21 +62,130 @@
   margin-bottom: 30px;
 }
 
-.add-to-cart-button {
-  background-color: #28a745; /* Cor verde para botão de ação */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: flex-start; /* Alinha o botão à esquerda */
+
+.add-to-cart-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.add-to-cart-button:hover {
-  background-color: #218838;
+.adding-effect {
+  background-color: red !important;
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Estilos para loading e erro */
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 40px;
+  text-align: center;
+}
+
+.loading-container h2, .error-container h2 {
+  color: #C12A21;
+  font-family: "Island Moments", cursive;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.loading-container p, .error-container p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* Estilos para categoria do produto */
+.product-category {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #C12A21;
+}
+
+.category-label {
+  font-weight: 600;
+  color: #333;
+  margin-right: 10px;
+}
+
+.category-value {
+  color: #C12A21;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+/* Estilos para botões de navegação */
+.navigation-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.back-to-products-button, .back-to-home-button {
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+}
+
+.back-to-products-button {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+}
+
+.back-to-products-button:hover {
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  text-decoration: none;
+  color: white;
+}
+
+.back-to-home-button {
+  background: transparent;
+  color: #C12A21;
+  border: 2px solid #C12A21;
+}
+
+.back-to-home-button:hover {
+  background: #C12A21;
+  color: white;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* Estilo para o botão de voltar */
+.back-button {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
 /* --- Responsividade --- */
@@ -99,6 +207,7 @@
   .product-detail-name {
     font-size: 2em;
     margin-bottom: 10px;
+    font-family: "Island Moments", cursive;
   }
 
   .product-detail-price {
@@ -114,6 +223,16 @@
   .add-to-cart-button {
     width: 100%; /* Botão ocupa toda a largura em mobile */
     align-self: center; /* Centraliza o botão */
+  }
+
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .back-to-products-button, .back-to-home-button {
+    width: 100%;
+    min-width: auto;
   }
 }
 

@@ -42,7 +42,7 @@
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 20px; /* Espaço entre os itens */
+  gap: 15px; /* Espaço entre os itens */
   list-style: none; /* Remove marcadores de lista */
   /* text-align: center; */ /* Esta propriedade não tem efeito direto em display: flex e pode ser removida */
   flex-grow: 1; /* Faz o menu ocupar o espaço restante na navbar-container */
@@ -71,7 +71,7 @@
 
 /* Efeito de hover nos links de navegação */
 .nav-links:hover {
-  color: #28a745; /* Mudar cor do texto para vermelho no hover */
+  color: #ccc; /* Mudar cor do texto para vermelho no hover */
 }
 
 /* Estilos para o link do ícone do carrinho */
@@ -83,8 +83,8 @@
 
 /* Estilos para o contador de itens no carrinho */
 .cart-item-count {
-  background-color: #28a745; /* Cor vermelha para o contador */
-  color: white;
+  background-color: white; 
+  color: #C12A21;
   border-radius: 50%; /* Faz a bolinha */
   padding: 2px 7px; /* Preenchimento para o número */
   font-size: 0.7em; /* Tamanho da fonte do número */
@@ -214,5 +214,61 @@
     align-items: center;
     justify-content: center;
     /* Outros estilos do seu link, como padding, color, etc. */
+}
+
+/* Estilos para elementos de autenticação */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  color: #C12A21 !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: default;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: #C12A21;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logout-button:hover {
+  color: #a01e18;
+  text-decoration: underline;
+}
+
+.register-link {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.register-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  text-decoration: none;
+}
+
+/* Responsividade para elementos de autenticação */
+@media screen and (max-width: 960px) {
+  .user-name {
+    font-size: 0.8rem;
+  }
+  
+  .register-link {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
 }
 }

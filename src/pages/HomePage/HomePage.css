@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+
 .home-page-container {
   padding-top: 20px;
   padding-bottom: 50px;
@@ -17,19 +19,97 @@
 .featured-products-section,
 .about-preview-section {
   text-align: center;
-  padding: 40px 20px;
+  padding: 2px 20px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
+/* Estilos para estados de loading e mensagens */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 40px;
+}
+
+.loading-container h2 {
+  color: #C12A21;
+  font-family: "Island Moments", cursive;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.loading-container p {
+  color: #666;
+  font-size: 18px;
+  margin: 0;
+}
+
+.no-products-message {
+  padding: 40px 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.no-products-message p {
+  color: #666;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Estilos para estado de erro */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 40px;
+  text-align: center;
+}
+
+.error-container h2 {
+  color: #C12A21;
+  font-family: "Island Moments", cursive;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.error-container p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
 .featured-products-section h2,
 .about-preview-section h2 {
-  font-size: 2.5em;
-  color: #333;
+  font-family: "Island Moments", cursive;
+  font-size: 64px;
+  color: #666;
   margin-bottom: 25px;
-  border-bottom: 2px solid #C12A21; /* Linha decorativa */
   display: inline-block; /* Para a linha ter o tamanho do texto */
   padding-bottom: 10px;
+  font-weight: normal;
 }
 
 .about-preview-section p {
@@ -50,11 +130,13 @@
   }
   .featured-products-section,
   .about-preview-section {
-    padding: 30px 15px;
+    padding: -0px 15px;
   }
   .featured-products-section h2,
   .about-preview-section h2 {
-    font-size: 2em;
+     font-family: "Island Moments", cursive;
+     font-size: 2em;
+     font-weight: normal;
   }
 }
 

@@ -50,12 +50,12 @@ const OrderSummary = () => {
 
   return (
     <div className="order-summary-container">
-      <h3>Seu Pedido</h3>
+      <h3>seu pedido</h3>
       <div className="order-items-list">
         {orderItems.map(item => (
           <div key={item.productId} className="order-item">
             <span className="item-name">{item.name}</span>
-            <span className="item-price">{item.price}</span>
+            <span className="item-price">{item.price} </span>
             <div className="item-quantity-controls">
               <button onClick={() => handleDecrease(item.productId, item.quantity)}>-</button>
               <span>{item.quantity}</span>

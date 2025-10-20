@@ -2,7 +2,6 @@
   border: 1px solid #e0e0e0; /* Borda suave */
   border-radius: 10px; /* Cantos arredondados */
   overflow: hidden; /* Garante que a imagem não vaze */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave ao passar o mouse */
   background-color: #fff; /* Fundo branco */
   display: flex; /* Para flexbox interno se necessário */
@@ -16,7 +15,7 @@
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
 }
 
 
@@ -53,9 +52,12 @@
   
 }
 
+.product-card-details h3{
+  font-weight: normal;
+}
 .product-card-name {
   font-size: 1.3em;
-  color: #333;
+  color: #666;
   margin-top: 0;
   margin-bottom: 5px;
   font-weight: bold;
@@ -69,7 +71,7 @@
 }
 
 .product-card-button {
-  background-color: #28a745; /* Cor verde para botão de ação "Adicionar" */
+  background-color: #FFE4E1;
   color: white;
   border: none;
   border-radius: 5px;
@@ -81,7 +83,7 @@
 }
 
 .product-card-button:hover {
-  background-color: #218838; /* Cor mais escura ao passar o mouse */
+  background-color: #FA8072; /* Cor mais escura ao passar o mouse */
 }
 
 /* --- Responsividade para telas menores --- */

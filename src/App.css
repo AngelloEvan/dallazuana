@@ -14,7 +14,7 @@ body {
 }
 
 .navbar-wrapper {
-  background-color: #C12A21; /* Cor vermelha para o quadrado/fundo */
+  background-color: #FA8072; /* Cor vermelha para o quadrado/fundo */
   padding: 15px 0; /* Espaçamento interno para a borda vermelha */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
   position: sticky; /* Mantém o wrapper fixo no topo junto com a Navbar */

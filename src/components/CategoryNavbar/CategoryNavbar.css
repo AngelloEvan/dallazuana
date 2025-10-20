@@ -1,9 +1,7 @@
 .category-navbar {
-  background-color: #e9ecef; /* Cor de fundo clara */
   padding: 10px 0;
-  border-bottom: 1px solid #dee2e6;
   margin-bottom: 30px; /* Espaço abaixo da navbar de categoria */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  
 }
 
 .category-menu {
@@ -28,14 +26,13 @@
 }
 
 .category-item:hover {
-  background-color: #C12A21; /* Fundo azul no hover */
+  background-color: #ddd; /* Fundo azul no hover */
   color: white; /* Texto branco no hover */
 }
 
 .category-item.active {
-  background-color: #009246; /* Fundo azul para a categoria ativa */
+  background-color: #ccc; /* Fundo azul para a categoria ativa */
   color: white; /* Texto branco para a categoria ativa */
-  border-color: #C12A21;
   font-weight: bold;
 }
 

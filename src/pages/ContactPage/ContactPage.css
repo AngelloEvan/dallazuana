@@ -6,17 +6,18 @@
 }
 
 .contact-page-container h2 {
-  font-size: 2.5em;
-  color: #333;
+  font-family: "Island Moments", cursive;
+  font-size: 64px;
+  color: #666;
   margin-bottom: 20px;
-  border-bottom: 2px solid #009246;
   display: inline-block;
   padding-bottom: 10px;
+  font-weight: normal;
 }
 
 .contact-page-container p {
   font-size: 1.1em;
-  color: #555;
+  color: #666;;
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -43,12 +44,14 @@
 
 .contact-form-section h3,
 .contact-info-section h3 {
-  font-size: 1.8em;
-  color: #333;
+  font-family: "Island Moments", cursive;
+  font-size: 38px;
+  color: #666;
   margin-top: 0;
   margin-bottom: 20px;
   border-bottom: 1px solid #eee; /* Linha sutil para subtítulos */
   padding-bottom: 10px;
+  font-weight: normal;
 }
 
 /* Estilos do formulário (mantidos do anterior) */
@@ -64,7 +67,7 @@
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
-  color: #333;
+  color: #666;
 }
 
 .form-group input[type="text"],
@@ -82,7 +85,7 @@
 }
 
 .submit-button {
-  background-color: #218838;
+  background-color: #ccc;
   color: white;
   border: none;
   border-radius: 5px;
@@ -94,7 +97,7 @@
 }
 
 .submit-button:hover {
-  background-color: #28a745;
+  background-color: #ddd;
 }
 
 /* Estilos para informações de contato */

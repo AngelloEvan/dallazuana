@@ -1,37 +1,144 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom'; // Para pegar o ID da URL
-import productsData from '../../data/products'; // Importa os dados dos produtos
-import './ProductDetailPage.css'; // Estilos para a página de detalhes
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useOrder } from '../../context/OrderContext';
+import apiClient from '../../services/apiClient';
+import './ProductDetailPage.css';
 
 const ProductDetailPage = () => {
-  const { id } = useParams(); // Pega o 'id' da URL (ex: /produto/1)
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { addItemToOrder } = useOrder();
+  
+  // Estados para gerenciar o produto e loading
+  const [product, setProduct] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
 
-  // Encontra o produto correspondente no array de dados
-  const product = productsData.find(p => p.id === parseInt(id));
+  // Busca os dados do produto na API
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        setIsLoading(true);
+        const response = await apiClient.get(`/produtos/${id}`);
+        setProduct(response.data);
+      } catch (err) {
+        console.error('Erro ao buscar produto:', err);
+        setError('Produto não encontrado ou erro ao carregar dados.');
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-  // Se o produto não for encontrado, exibe uma mensagem
-  if (!product) {
+    if (id) {
+      fetchProduct();
+    }
+  }, [id]);
+
+  // Função para adicionar produto ao carrinho
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
+    
+    if (!product) return;
+
+    setIsAddingToCart(true);
+    try {
+      addItemToOrder(product);
+      console.log(`Produto ${product.name} adicionado ao pedido.`);
+    } catch (error) {
+      console.error('Erro ao adicionar produto ao carrinho:', error);
+    } finally {
+      // Feedback visual
+      setTimeout(() => {
+        setIsAddingToCart(false);
+      }, 1000);
+    }
+  };
+
+  // Função para voltar à tela anterior
+  const handleGoBack = () => {
+    // Verifica se há histórico para voltar
+    if (window.history.length > 1) {
+      navigate(-1); // Volta para a página anterior
+    } else {
+      // Se não há histórico, vai para a página inicial
+      navigate('/');
+    }
+  };
+
+  // Função alternativa mais robusta (opcional)
+  const handleGoBackAlternative = () => {
+    // Verifica o referrer (página que trouxe o usuário)
+    if (document.referrer && document.referrer.includes(window.location.origin)) {
+      navigate(-1);
+    } else {
+      // Fallback para página inicial
+      navigate('/');
+    }
+  };
+
+  // Estados de loading e erro
+  if (isLoading) {
     return (
       <div className="product-detail-container">
-        <h2>Produto não encontrado :(</h2>
-        <p>Parece que o produto que você está procurando não existe ou foi removido.</p>
+        <div className="loading-container">
+          <h2>Carregando produto...</h2>
+          <p>Aguarde enquanto buscamos as informações do produto.</p>
+        </div>
       </div>
     );
   }
 
-  // Se o produto for encontrado, exibe seus detalhes
+  if (error || !product) {
+    return (
+      <div className="product-detail-container">
+        <div className="error-container">
+          <h2>Produto não encontrado</h2>
+          <p>{error || 'Parece que o produto que você está procurando não existe ou foi removido.'}</p>
+          <Link to="/produtos" className="back-to-products-button">
+            Ver todos os produtos
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Renderização do produto encontrado
   return (
     <div className="product-detail-container">
       <div className="product-detail-card">
         <div className="product-detail-image-gallery">
-          <img src={product.imageUrl} alt={product.name} className="main-product-image" />
+          <img 
+            src={product.imageUrl} 
+            alt={product.name} 
+            className="main-product-image"
+            loading="lazy"
+          />
           {/* Futuramente: galeria de imagens secundárias */}
         </div>
         <div className="product-detail-info">
           <h2 className="product-detail-name">{product.name}</h2>
-          <p className="product-detail-price">{product.price}</p>
+      
+         
+              <p className="category-label">Categoria: <span className="category-value">{product.category}</span></p>
+              
+
+          
+          
           <p className="product-detail-description">{product.description}</p>
-           <Link to="/" className="back-to-home-button">Voltar</Link>
+          <p className="product-detail-price">{product.price}</p>
+
+          
+          
+         
+     
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+           <button 
+             onClick={handleGoBack}
+             className="back-button"
+           >
+             ← Voltar
+           </button>
         </div>
       </div>
     </div>

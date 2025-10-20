@@ -1,21 +1,21 @@
 .order-summary-container {
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
+  
   border-radius: 8px;
   padding: 25px;
   margin: 40px auto;
   max-width: 600px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
   text-align: center;
 }
 
 .order-summary-container h3 {
-  color: #333;
+  font-family: "Island Moments", cursive;
+  font-size: 48px;
+  color: #666;
   margin-bottom: 25px;
-  font-size: 1.8em;
-  border-bottom: 2px solid #007bff;
   padding-bottom: 10px;
   display: inline-block;
+  font-weight: normal;
 }
 
 .order-summary-container.empty p {
@@ -36,8 +36,9 @@
   align-items: center;
   padding: 10px 0;
   border-bottom: 1px dashed #eee;
-  font-size: 1.05em;
-  color: #444;
+  font-size: 1em;
+  color: #666;
+  font-weight: normal;
 }
 
 .order-item:last-child {
@@ -54,7 +55,7 @@
   flex: 1;
   text-align: right;
   font-weight: bold;
-  color: #007bff;
+  color: #666;
 }
 
 .item-quantity-controls {
@@ -84,14 +85,14 @@
 }
 
 .remove-item-btn {
-  background-color: #dc3545 !important; /* Vermelho */
+  background-color: #ddd !important; /* Vermelho */
   color: white;
   border: none !important;
   margin-left: 10px; /* Espaço do botão */
 }
 
 .remove-item-btn:hover {
-  background-color: #c82333 !important;
+  background-color: #ccc !important;
 }
 
 
@@ -99,7 +100,6 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.5em;
-  font-weight: bold;
   padding-top: 15px;
   border-top: 2px solid #ddd;
   margin-top: 20px;
@@ -107,11 +107,11 @@
 }
 
 .total-amount {
-  color: #28a745; /* Verde para o total */
+  color: #666; /* Verde para o total */
 }
 
 .whatsapp-button {
-  background-color: #25d366; /* Cor verde WhatsApp */
+  background-color: #ddd; 
   color: white;
   border: none;
   border-radius: 25px; /* Botão mais arredondado */
@@ -119,16 +119,17 @@
   font-size: 1.2em;
   cursor: pointer;
   margin-top: 30px;
+  margin-left: 90px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   display: flex; /* Para alinhar o ícone/texto */
   align-items: center;
   justify-content: center;
   gap: 10px; /* Espaço entre texto e ícone (se adicionar um) */
-  width: 100%;
+  width: 70%;
 }
 
 .whatsapp-button:hover {
-  background-color: #1da851;
+  background-color: #ccc;
   transform: translateY(-2px);
 }
 
