@@ -6,7 +6,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   const { orderItems } = useOrder();
-  const { user, logout, isAuthenticated } = useAuth();
+  const { logout, isAuthenticated } = useAuth();
   const totalItemsInOrder = orderItems.reduce((total, item) => total + item.quantity, 0);
 
   // ESTADO PARA CONTROLAR SE O MENU MOBILE ESTÁ ABERTO OU FECHADO
