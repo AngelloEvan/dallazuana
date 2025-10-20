@@ -19,7 +19,9 @@ const ProductListingPage = () => {
       try {
         setIsLoading(true);
         const response = await apiClient.get('/produtos');
-        const productsData = response.data;
+        
+        // Garante que sempre seja um array
+        const productsData = Array.isArray(response.data) ? response.data : [];
         
         setProducts(productsData);
         
@@ -33,6 +35,8 @@ const ProductListingPage = () => {
       } catch (err) {
         console.error('Erro ao buscar produtos:', err);
         setError('Não foi possível carregar os produtos. Verifique a conexão com a API.');
+        setProducts([]);
+        setFilteredProducts([]);
       } finally {
         setIsLoading(false);
       }
