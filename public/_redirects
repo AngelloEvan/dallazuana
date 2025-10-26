@@ -1,2 +1,2 @@
-/api/* https://donaempadinha-dev.sa-east-1.elasticbeanstalk.com/api/:splat 200
+/api/* http://donaempadinha-dev.sa-east-1.elasticbeanstalk.com/api/:splat 200
 /* /index.html 200
