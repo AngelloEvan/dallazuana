@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// URL base da API - ajuste conforme necessário
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+// URL base da API - usa a mesma lógica do apiClient
+const API_BASE_URL = process.env.REACT_APP_API_URL || 
+  (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8080');
 
 // 1. Cria o Context de Autenticação
 const AuthContext = createContext();
