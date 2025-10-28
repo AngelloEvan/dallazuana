@@ -15,17 +15,17 @@ const ContactPage = () => {
             <input type="hidden" name="form-name" value="contact" />
             
             <div className="form-group">
-              <label htmlFor="name">Seu Nome:</label>
+              <label htmlFor="name">Nome:</label>
               <input type="text" id="name" name="name" required />
             </div>
             
             <div className="form-group">
-              <label htmlFor="email">Seu E-mail:</label>
+              <label htmlFor="email">E-mail:</label>
               <input type="email" id="email" name="email" required />
             </div>
             
             <div className="form-group">
-              <label htmlFor="phone">Seu Telefone:</label>
+              <label htmlFor="phone">Telefone:</label>
               <input type="tel" id="phone" name="phone" />
             </div>
             

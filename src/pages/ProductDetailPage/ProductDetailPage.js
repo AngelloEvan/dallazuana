@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useOrder } from '../../context/OrderContext';
 import apiClient from '../../services/apiClient';
 import './ProductDetailPage.css';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { addItemToOrder } = useOrder();
   
   // Estados para gerenciar o produto e loading
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isAddingoCart, setIsAddingToCart] = useState(false);
 
   // Busca os dados do produto na API
   useEffect(() => {
@@ -32,6 +35,25 @@ const ProductDetailPage = () => {
     }
   }, [id]);
 
+  // Função para adicionar produto ao carrinho
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
+    
+    if (!product) return;
+
+    setIsAddingToCart(true);
+    try {
+      addItemToOrder(product);
+      console.log(`Produto ${product.name} adicionado ao pedido.`);
+    } catch (error) {
+      console.error('Erro ao adicionar produto ao carrinho:', error);
+    } finally {
+      // Feedback visual
+      setTimeout(() => {
+        setIsAddingToCart(false);
+      }, 1000);
+    }
+  };
 
   // Função para voltar à tela anterior
   const handleGoBack = () => {
@@ -44,6 +66,16 @@ const ProductDetailPage = () => {
     }
   };
 
+  // Função alternativa mais robusta (opcional)
+  const handleGoBackAlternative = () => {
+    // Verifica o referrer (página que trouxe o usuário)
+    if (document.referrer && document.referrer.includes(window.location.origin)) {
+      navigate(-1);
+    } else {
+      // Fallback para página inicial
+      navigate('/');
+    }
+  };
 
   // Estados de loading e erro
   if (isLoading) {
