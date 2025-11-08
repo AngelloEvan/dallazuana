@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// A URL base do seu backend Spring Boot (porta 8080)
+// A URL base do seu backend Spring Boot (porta 5000 em desenvolvimento)
 // Em produção, usa /api (proxy do Netlify). Em desenvolvimento, usa localhost.
 const API_BASE_URL = process.env.REACT_APP_API_URL || 
-  (process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:8080/api');
+  (process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api');
 
 // 1. Cria a instância do Axios
 const apiClient = axios.create({
@@ -40,7 +40,7 @@ export const login = (email, password) => {
 
 export const registerClient = (formData) => {
     // Retorna a promessa de registro para ser usada no AuthContext
-    return apiClient.post('/auth/criar-login-cliente', formData);
+    return apiClient.post('/clientes', formData);
 };
 
 

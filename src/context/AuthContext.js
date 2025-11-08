@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 // URL base da API - usa a mesma lógica do apiClient
 const API_BASE_URL = process.env.REACT_APP_API_URL || 
-  (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8080');
+  (process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000');
 
 // 1. Cria o Context de Autenticação
 const AuthContext = createContext();
@@ -69,14 +69,23 @@ export const AuthProvider = ({ children }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          username: email,
           email: email, 
           password: password
         })
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao fazer login');
+        let errorMessage = 'Erro ao fazer login';
+        try {
+          const errorData = await response.json();
+          if (errorData?.message) {
+            errorMessage = errorData.message;
+          }
+        } catch (parseError) {
+          // Corpo vazio ou não JSON.
+        }
+        throw new Error(errorMessage);
       }
 
       const userData = await response.json();
@@ -105,23 +114,31 @@ export const AuthProvider = ({ children }) => {
     
     try {
       // Chamada para o backend real
-      const response = await fetch(`${API_BASE_URL}/api/auth/criar-login-cliente`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: email, 
-          password: password,
           nome: name,
           telefone: phone,
+          email: email,
+          password: password,
           cpf: cpf
         })
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao criar conta');
+        let errorMessage = 'Erro ao criar conta';
+        try {
+          const errorData = await response.json();
+          if (errorData?.message) {
+            errorMessage = errorData.message;
+          }
+        } catch (parseError) {
+          // Corpo vazio ou não JSON.
+        }
+        throw new Error(errorMessage);
       }
 
       const userData = await response.json();
